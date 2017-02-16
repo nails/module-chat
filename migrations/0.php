@@ -6,7 +6,7 @@
  * Finalised:
  */
 
-namespace Nails\Database\Migration\NailsappModuleChat;
+namespace Nails\Database\Migration\Nailsapp\ModuleChat;
 
 use Nails\Common\Console\Migrate\Base;
 
