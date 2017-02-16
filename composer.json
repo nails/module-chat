@@ -1,0 +1,43 @@
+{
+    "name": "nailsapp/module-chat",
+    "keywords": ["Nails", "Shed Collective", "CodeIgniter", "Chat"],
+    "homepage": "http://nailsapp.co.uk/modules/chat",
+    "description": "This is the \"Chat\" module for Nails.",
+    "license": "MIT",
+    "authors":
+    [
+        {
+            "name": "Pablo de la Pena",
+            "email": "p@nailsapp.co.uk",
+            "homepage": "http://nailsapp.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "support":
+    {
+        "email": "hello@nailsapp.co.uk"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require":
+    {
+        "nailsapp/common": "dev-develop"
+    },
+    "require-dev":
+    {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload":
+    {
+        "psr-4": {"Nails\\Chat\\": "src/"}
+    },
+    "extra":
+    {
+        "nails" :
+        {
+            "moduleName": "chat",
+            "type": "module",
+            "namespace": "Nails\\Chat\\"
+        }
+    }
+}
