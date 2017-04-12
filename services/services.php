@@ -3,24 +3,24 @@
 return [
     'models'  => [
         'Room' => function () {
-            if (class_exists('\App\Chat\Room')) {
-                return new \App\Chat\Room();
+            if (class_exists('\App\Chat\Model\Room')) {
+                return new \App\Chat\Model\Room();
             } else {
-                return new \Nails\Chat\Room();
+                return new \Nails\Chat\Model\Room();
             }
         },
         'RoomMessage' => function () {
-            if (class_exists('\App\Chat\Room\Message')) {
-                return new \App\Chat\Room\Message();
+            if (class_exists('\App\Chat\Model\Room\Message')) {
+                return new \App\Chat\Model\Room\Message();
             } else {
-                return new \Nails\Chat\Room\Message();
+                return new \Nails\Chat\Model\Room\Message();
             }
         },
         'RoomUser' => function () {
-            if (class_exists('\App\Chat\Room\User')) {
-                return new \App\Chat\Room\User();
+            if (class_exists('\App\Chat\Model\Room\User')) {
+                return new \App\Chat\Model\Room\User();
             } else {
-                return new \Nails\Chat\Room\User();
+                return new \Nails\Chat\Model\Room\User();
             }
         },
     ],

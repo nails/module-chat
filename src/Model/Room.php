@@ -21,7 +21,7 @@ class Room extends Base
     public function __construct()
     {
         parent::__construct();
-        $this->table = NAILS_DB_PREFIX . 'room';
+        $this->table = NAILS_DB_PREFIX . 'chat_room';
         $this->addExpandableField(
             [
                 'trigger'   => 'message',
