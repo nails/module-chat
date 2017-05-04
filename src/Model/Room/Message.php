@@ -9,7 +9,7 @@
  * @category    model
  */
 
-namespace Nails\Chat\Model;
+namespace Nails\Chat\Model\Room;
 
 use Nails\Common\Model\Base;
 
