@@ -22,25 +22,21 @@ class Room extends Base
     {
         parent::__construct();
         $this->table = NAILS_DB_PREFIX . 'chat_room';
-        $this->addExpandableField(
-            [
-                'trigger'   => 'message',
-                'type'      => self::EXPANDABLE_TYPE_MANY,
-                'property'  => 'message',
-                'model'     => 'RoomMessage',
-                'provider'  => 'nailsapp/module-chat',
-                'id_column' => 'room_id',
-            ]
-        );
-        $this->addExpandableField(
-            [
-                'trigger'   => 'user',
-                'type'      => self::EXPANDABLE_TYPE_MANY,
-                'property'  => 'user',
-                'model'     => 'RoomUser',
-                'provider'  => 'nailsapp/module-chat',
-                'id_column' => 'room_id',
-            ]
-        );
+        $this->addExpandableField([
+            'trigger'   => 'messages',
+            'type'      => self::EXPANDABLE_TYPE_MANY,
+            'property'  => 'messages',
+            'model'     => 'RoomMessage',
+            'provider'  => 'nailsapp/module-chat',
+            'id_column' => 'chat_room_id',
+        ]);
+        $this->addExpandableField([
+            'trigger'   => 'users',
+            'type'      => self::EXPANDABLE_TYPE_MANY,
+            'property'  => 'users',
+            'model'     => 'RoomUser',
+            'provider'  => 'nailsapp/module-chat',
+            'id_column' => 'chat_room_id',
+        ]);
     }
 }
