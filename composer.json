@@ -37,7 +37,14 @@
         {
             "moduleName": "chat",
             "type": "module",
-            "namespace": "Nails\\Chat\\"
+            "namespace": "Nails\\Chat\\",
+            "data": {
+                "nailsapp/module-cdn": {
+                    "permitted-image-dimensions": [
+                        "150x150"
+                    ]
+                }
+            }
         }
     }
 }
