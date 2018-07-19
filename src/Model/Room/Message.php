@@ -46,10 +46,10 @@ class Message extends Base
 
     protected function formatObject(
         &$oObj,
-        $aData = [],
-        $aIntegers = [],
-        $aBools = [],
-        $aFloats = []
+        array $aData = [],
+        array $aIntegers = [],
+        array $aBools = [],
+        array $aFloats = []
     ) {
         $aIntegers[] = 'chat_room_id';
         $aIntegers[] = 'chat_room_user_id';
