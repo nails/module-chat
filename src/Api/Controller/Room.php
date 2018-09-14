@@ -10,15 +10,15 @@ class Room extends DefaultController
 {
     const REQUIRE_AUTH          = true;
     const CONFIG_MODEL_NAME     = 'Room';
-    const CONFIG_MODEL_PROVIDER = 'nailsapp/module-chat';
+    const CONFIG_MODEL_PROVIDER = 'nails/module-chat';
 
     // --------------------------------------------------------------------------
 
     public function getMessages()
     {
         $oInput        = Factory::service('Input');
-        $oRoomModel    = Factory::model('Room', 'nailsapp/module-chat');
-        $oMessageModel = Factory::model('RoomMessage', 'nailsapp/module-chat');
+        $oRoomModel    = Factory::model('Room', 'nails/module-chat');
+        $oMessageModel = Factory::model('RoomMessage', 'nails/module-chat');
 
         //  Validate the room
         $iRoomId = $oInput->get('room_id');
@@ -72,7 +72,7 @@ class Room extends DefaultController
             ];
         }
 
-        return Factory::factory('ApiResponse', 'nailsapp/module-api')
+        return Factory::factory('ApiResponse', 'nails/module-api')
                         ->setData($aOut);
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "nailsapp/module-chat",
+    "name": "nails/module-chat",
     "keywords": ["Nails", "Shed Collective", "CodeIgniter", "Chat"],
     "homepage": "http://nailsapp.co.uk/modules/chat",
     "description": "This is the \"Chat\" module for Nails.",
@@ -21,7 +21,7 @@
     "prefer-stable": true,
     "require":
     {
-        "nailsapp/common": "dev-develop"
+        "nails/common": "dev-develop"
     },
     "require-dev":
     {
@@ -39,7 +39,7 @@
             "type": "module",
             "namespace": "Nails\\Chat\\",
             "data": {
-                "nailsapp/module-cdn": {
+                "nails/module-cdn": {
                     "permitted-image-dimensions": [
                         "150x150"
                     ]

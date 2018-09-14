@@ -27,7 +27,7 @@ class User extends Base
             'type'      => self::EXPANDABLE_TYPE_SINGLE,
             'property'  => 'room',
             'model'     => 'Room',
-            'provider'  => 'nailsapp/module-chat',
+            'provider'  => 'nails/module-chat',
             'id_column' => 'chat_room_id',
         ]);
         $this->addExpandableField([
@@ -35,7 +35,7 @@ class User extends Base
             'type'      => self::EXPANDABLE_TYPE_SINGLE,
             'property'  => 'user',
             'model'     => 'User',
-            'provider'  => 'nailsapp/module-auth',
+            'provider'  => 'nails/module-auth',
             'id_column' => 'user_id',
         ]);
     }
