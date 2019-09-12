@@ -11,6 +11,7 @@
 
 namespace Nails\Chat\Model\Room;
 
+use Nails\Auth;
 use Nails\Common\Model\Base;
 
 class User extends Base
@@ -35,7 +36,7 @@ class User extends Base
             'type'      => self::EXPANDABLE_TYPE_SINGLE,
             'property'  => 'user',
             'model'     => 'User',
-            'provider'  => 'nails/module-auth',
+            'provider'  => Auth\Constants::MODULE_SLUG,
             'id_column' => 'user_id',
         ]);
     }

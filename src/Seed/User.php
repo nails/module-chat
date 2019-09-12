@@ -2,6 +2,7 @@
 
 namespace Nails\Chat\Seed;
 
+use Nails\Auth;
 use Nails\Common\Console\Seed\DefaultSeed;
 
 class User extends DefaultSeed
@@ -15,7 +16,7 @@ class User extends DefaultSeed
     {
         $aData                 = parent::generate($aFields);
         $aData['chat_room_id'] = $this->randomId('Room', 'nails/module-chat');
-        $aData['user_id']      = $this->randomId('User', 'nails/module-auth');
+        $aData['user_id']      = $this->randomId('User', Auth\Constants::MODULE_SLUG);
 
         return $aData;
     }
