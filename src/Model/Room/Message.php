@@ -15,13 +15,16 @@ use Nails\Common\Model\Base;
 
 class Message extends Base
 {
+    const TABLE_NAME = NAILS_DB_PREFIX . 'chat_room_message';
+
+    // --------------------------------------------------------------------------
+
     /**
      * Message constructor.
      */
     public function __construct()
     {
         parent::__construct();
-        $this->table             = NAILS_DB_PREFIX . 'chat_room_message';
         $this->defaultSortColumn = 'id';
         $this->defaultSortOrder  = 'asc';
         $this->addExpandableField([

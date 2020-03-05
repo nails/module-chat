@@ -15,13 +15,16 @@ use Nails\Common\Model\Base;
 
 class Room extends Base
 {
+    const TABLE_NAME = NAILS_DB_PREFIX . 'chat_room';
+
+    // --------------------------------------------------------------------------
+
     /**
      * Room constructor.
      */
     public function __construct()
     {
         parent::__construct();
-        $this->table = NAILS_DB_PREFIX . 'chat_room';
         $this->addExpandableField([
             'trigger'   => 'messages',
             'type'      => self::EXPANDABLE_TYPE_MANY,

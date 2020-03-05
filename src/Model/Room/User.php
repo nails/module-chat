@@ -16,13 +16,16 @@ use Nails\Common\Model\Base;
 
 class User extends Base
 {
+    const TABLE_NAME = NAILS_DB_PREFIX . 'chat_room_user';
+
+    // --------------------------------------------------------------------------
+
     /**
      * User constructor.
      */
     public function __construct()
     {
         parent::__construct();
-        $this->table = NAILS_DB_PREFIX . 'chat_room_user';
         $this->addExpandableField([
             'trigger'   => 'room',
             'type'      => self::EXPANDABLE_TYPE_SINGLE,
