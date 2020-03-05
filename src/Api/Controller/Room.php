@@ -2,11 +2,10 @@
 
 namespace Nails\Chat\Api\Controller;
 
-use Nails\Api\Controller\DefaultController;
-use Nails\ApiApiException\ApiException;
+use Nails\Api;
 use Nails\Factory;
 
-class Room extends DefaultController
+class Room extends Api\Controller\DefaultController
 {
     const REQUIRE_AUTH          = true;
     const CONFIG_MODEL_NAME     = 'Room';
@@ -25,7 +24,7 @@ class Room extends DefaultController
         $oRoom   = $oRoomModel->getById($iRoomId, ['expand' => ['users']]);
 
         if (empty($oRoom)) {
-            throw new ApiException('Invalid Room Id', 404);
+            throw new Api\Exception\ApiException('Invalid Room Id', 404);
         }
 
         //  Is user in the room?
@@ -38,7 +37,7 @@ class Room extends DefaultController
         }
 
         if (!$bUserInRoom) {
-            throw new ApiException('You are not in this room.', 401);
+            throw new Api\Exception\ApiException('You are not in this room.', 401);
         }
 
         $iPage     = (int) $oInput->get('page') ?: 0;
@@ -72,7 +71,7 @@ class Room extends DefaultController
             ];
         }
 
-        return Factory::factory('ApiResponse', 'nails/module-api')
+        return Factory::factory('ApiResponse', Api\Constants::MODULE_SLUG)
                         ->setData($aOut);
     }
 }
