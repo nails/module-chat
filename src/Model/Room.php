@@ -11,6 +11,7 @@
 
 namespace Nails\Chat\Model;
 
+use Nails\Chat\Constants;
 use Nails\Common\Model\Base;
 
 class Room extends Base
@@ -30,7 +31,7 @@ class Room extends Base
             'type'      => self::EXPANDABLE_TYPE_MANY,
             'property'  => 'messages',
             'model'     => 'RoomMessage',
-            'provider'  => 'nails/module-chat',
+            'provider'  => Constants::MODULE_SLUG,
             'id_column' => 'chat_room_id',
         ]);
         $this->addExpandableField([
@@ -38,7 +39,7 @@ class Room extends Base
             'type'      => self::EXPANDABLE_TYPE_MANY,
             'property'  => 'users',
             'model'     => 'RoomUser',
-            'provider'  => 'nails/module-chat',
+            'provider'  => Constants::MODULE_SLUG,
             'id_column' => 'chat_room_id',
         ]);
     }

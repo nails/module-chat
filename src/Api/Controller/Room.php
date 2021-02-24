@@ -3,21 +3,22 @@
 namespace Nails\Chat\Api\Controller;
 
 use Nails\Api;
+use Nails\Chat\Constants;
 use Nails\Factory;
 
 class Room extends Api\Controller\DefaultController
 {
     const REQUIRE_AUTH          = true;
     const CONFIG_MODEL_NAME     = 'Room';
-    const CONFIG_MODEL_PROVIDER = 'nails/module-chat';
+    const CONFIG_MODEL_PROVIDER = Constants::MODULE_SLUG;
 
     // --------------------------------------------------------------------------
 
     public function getMessages()
     {
         $oInput        = Factory::service('Input');
-        $oRoomModel    = Factory::model('Room', 'nails/module-chat');
-        $oMessageModel = Factory::model('RoomMessage', 'nails/module-chat');
+        $oRoomModel    = Factory::model('Room', Constants::MODULE_SLUG);
+        $oMessageModel = Factory::model('RoomMessage', Constants::MODULE_SLUG);
 
         //  Validate the room
         $iRoomId = $oInput->get('room_id');
