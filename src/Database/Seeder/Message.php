@@ -1,11 +1,11 @@
 <?php
 
-namespace Nails\Chat\Seed;
+namespace Nails\Chat\Database\Seeder;
 
 use Nails\Chat\Constants;
-use Nails\Common\Console\Seed\DefaultSeed;
+use Nails\Common\Console\Seed\Model;
 
-class Message extends DefaultSeed
+class Message extends Model
 {
     const CONFIG_MODEL_NAME     = 'RoomMessage';
     const CONFIG_MODEL_PROVIDER = Constants::MODULE_SLUG;

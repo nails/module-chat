@@ -1,12 +1,12 @@
 <?php
 
-namespace Nails\Chat\Seed;
+namespace Nails\Chat\Database\Seeder;
 
 use Nails\Auth;
 use Nails\Chat\Constants;
-use Nails\Common\Console\Seed\DefaultSeed;
+use Nails\Common\Console\Seed\Model;
 
-class User extends DefaultSeed
+class User extends Model
 {
     const CONFIG_MODEL_NAME     = 'RoomUser';
     const CONFIG_MODEL_PROVIDER = Constants::MODULE_SLUG;
