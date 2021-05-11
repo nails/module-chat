@@ -17,6 +17,8 @@ use Nails\Common\Model\Base;
 class Message extends Base
 {
     const TABLE_NAME          = NAILS_DB_PREFIX . 'chat_room_message';
+    const RESOURCE_NAME       = 'RoomMessage';
+    const RESOURCE_PROVIDER   = Constants::MODULE_SLUG;
     const DEFAULT_SORT_COLUMN = 'id';
     const DEFAULT_SORT_ORDER  = self::SORT_ASC;
 

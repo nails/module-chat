@@ -17,7 +17,9 @@ use Nails\Common\Model\Base;
 
 class User extends Base
 {
-    const TABLE_NAME = NAILS_DB_PREFIX . 'chat_room_user';
+    const TABLE_NAME        = NAILS_DB_PREFIX . 'chat_room_user';
+    const RESOURCE_NAME     = 'RoomUser';
+    const RESOURCE_PROVIDER = Constants::MODULE_SLUG;
 
     // --------------------------------------------------------------------------
 
