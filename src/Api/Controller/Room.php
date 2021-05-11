@@ -16,13 +16,18 @@ class Room extends Api\Controller\DefaultController
 
     public function getMessages()
     {
-        $oInput        = Factory::service('Input');
-        $oRoomModel    = Factory::model('Room', Constants::MODULE_SLUG);
+        /** @var \Nails\Common\Service\Input $oInput */
+        $oInput = Factory::service('Input');
+        /** @var \Nails\Chat\Model\Room $oRoomModel */
+        $oRoomModel = Factory::model('Room', Constants::MODULE_SLUG);
+        /** @var \Nails\Chat\Model\Room\Message $oMessageModel */
         $oMessageModel = Factory::model('RoomMessage', Constants::MODULE_SLUG);
 
         //  Validate the room
         $iRoomId = $oInput->get('room_id');
-        $oRoom   = $oRoomModel->getById($iRoomId, ['expand' => ['users']]);
+
+        /** @var \Nails\Chat\Resource\Room $oRoom */
+        $oRoom = $oRoomModel->getById($iRoomId, ['expand' => ['users']]);
 
         if (empty($oRoom)) {
             throw new Api\Exception\ApiException('Invalid Room Id', 404);
@@ -30,6 +35,7 @@ class Room extends Api\Controller\DefaultController
 
         //  Is user in the room?
         $bUserInRoom = false;
+        /** @var \Nails\Chat\Resource\Room\User $oRoomUser */
         foreach ($oRoom->users->data as $oRoomUser) {
             if ($oRoomUser->user_id === activeUser('id')) {
                 $bUserInRoom = true;
@@ -57,6 +63,8 @@ class Room extends Api\Controller\DefaultController
         );
 
         $aOut = [];
+
+        /** @var \Nails\Chat\Resource\Room\Message $oMessage */
         foreach ($aMessages as $oMessage) {
             $aOut[] = (object) [
                 'id'      => $oMessage->id,

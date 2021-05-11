@@ -12,7 +12,7 @@ class Message extends Model
 
     // --------------------------------------------------------------------------
 
-    protected function generate($aFields)
+    protected function generate(array $aFields): array
     {
         $aData                      = parent::generate($aFields);
         $aData['chat_room_id']      = $this->randomId('Room', Constants::MODULE_SLUG);
