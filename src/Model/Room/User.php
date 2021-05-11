@@ -29,35 +29,8 @@ class User extends Base
     public function __construct()
     {
         parent::__construct();
-        $this->addExpandableField([
-            'trigger'   => 'room',
-            'type'      => self::EXPANDABLE_TYPE_SINGLE,
-            'property'  => 'room',
-            'model'     => 'Room',
-            'provider'  => Constants::MODULE_SLUG,
-            'id_column' => 'chat_room_id',
-        ]);
-        $this->addExpandableField([
-            'trigger'   => 'user',
-            'type'      => self::EXPANDABLE_TYPE_SINGLE,
-            'property'  => 'user',
-            'model'     => 'User',
-            'provider'  => Auth\Constants::MODULE_SLUG,
-            'id_column' => 'user_id',
-        ]);
-    }
-
-    // --------------------------------------------------------------------------
-
-    protected function formatObject(
-        &$oObj,
-        array $aData = [],
-        array $aIntegers = [],
-        array $aBools = [],
-        array $aFloats = []
-    ) {
-        $aIntegers[] = 'chat_room_id';
-        $aIntegers[] = 'user_id';
-        parent::formatObject($oObj, $aData, $aIntegers, $aBools, $aFloats);
+        $this
+            ->hasOne('room', 'Room', Constants::MODULE_SLUG, 'chat_room_id')
+            ->hasOne('user', 'User', Auth\Constants::MODULE_SLUG);
     }
 }

@@ -30,35 +30,8 @@ class Message extends Base
     public function __construct()
     {
         parent::__construct();
-        $this->addExpandableField([
-            'trigger'   => 'room',
-            'type'      => self::EXPANDABLE_TYPE_SINGLE,
-            'property'  => 'room',
-            'model'     => 'Room',
-            'provider'  => Constants::MODULE_SLUG,
-            'id_column' => 'chat_room_id',
-        ]);
-        $this->addExpandableField([
-            'trigger'   => 'user',
-            'type'      => self::EXPANDABLE_TYPE_SINGLE,
-            'property'  => 'user',
-            'model'     => 'RoomUser',
-            'provider'  => Constants::MODULE_SLUG,
-            'id_column' => 'chat_room_user_id',
-        ]);
-    }
-
-    // --------------------------------------------------------------------------
-
-    protected function formatObject(
-        &$oObj,
-        array $aData = [],
-        array $aIntegers = [],
-        array $aBools = [],
-        array $aFloats = []
-    ) {
-        $aIntegers[] = 'chat_room_id';
-        $aIntegers[] = 'chat_room_user_id';
-        parent::formatObject($oObj, $aData, $aIntegers, $aBools, $aFloats);
+        $this
+            ->hasOne('room', 'Room', Constants::MODULE_SLUG, 'chat_room_id')
+            ->hasOne('user', 'RoomUser', Constants::MODULE_SLUG, 'chat_room_user_id');
     }
 }

@@ -28,21 +28,8 @@ class Room extends Base
     public function __construct()
     {
         parent::__construct();
-        $this->addExpandableField([
-            'trigger'   => 'messages',
-            'type'      => self::EXPANDABLE_TYPE_MANY,
-            'property'  => 'messages',
-            'model'     => 'RoomMessage',
-            'provider'  => Constants::MODULE_SLUG,
-            'id_column' => 'chat_room_id',
-        ]);
-        $this->addExpandableField([
-            'trigger'   => 'users',
-            'type'      => self::EXPANDABLE_TYPE_MANY,
-            'property'  => 'users',
-            'model'     => 'RoomUser',
-            'provider'  => Constants::MODULE_SLUG,
-            'id_column' => 'chat_room_id',
-        ]);
+        $this
+            ->hasMany('messages', 'RoomMessage', 'chat_room_id', Constants::MODULE_SLUG)
+            ->hasMany('users', 'RoomUser', 'chat_room_id', Constants::MODULE_SLUG);
     }
 }
