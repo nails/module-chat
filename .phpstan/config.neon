@@ -1,5 +1,11 @@
 parameters:
-    level: 0
+    level: 5
     paths:
         - ../src
         - ../tests
+    bootstrapFiles:
+        - constants.php
+    scanFiles:
+        - ../vendor/nails/module-auth/helpers/user.php
+        - ../vendor/nails/common/helpers/typography.php
+        - ../vendor/nails/module-cdn/helpers/cdn.php
