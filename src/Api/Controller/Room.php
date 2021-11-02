@@ -14,7 +14,7 @@ class Room extends Api\Controller\DefaultController
 
     // --------------------------------------------------------------------------
 
-    public function getMessages()
+    public function getMessages(): Api\Factory\ApiResponse
     {
         /** @var \Nails\Common\Service\Input $oInput */
         $oInput = Factory::service('Input');
@@ -26,7 +26,7 @@ class Room extends Api\Controller\DefaultController
         //  Validate the room
         $iRoomId = $oInput->get('room_id');
 
-        /** @var \Nails\Chat\Resource\Room $oRoom */
+        /** @var \Nails\Chat\Resource\Room|null $oRoom */
         $oRoom = $oRoomModel->getById($iRoomId, ['expand' => ['users']]);
 
         if (empty($oRoom)) {
@@ -80,7 +80,9 @@ class Room extends Api\Controller\DefaultController
             ];
         }
 
-        return Factory::factory('ApiResponse', Api\Constants::MODULE_SLUG)
-                        ->setData($aOut);
+        /** @var Api\Factory\ApiResponse $oApiResponse */
+        $oApiResponse = Factory::factory('ApiResponse', Api\Constants::MODULE_SLUG);
+        $oApiResponse->setData($aOut);
+        return $oApiResponse;
     }
 }
