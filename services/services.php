@@ -28,25 +28,25 @@ return [
         },
     ],
     'resources' => [
-        'Room'        => function ($oObj): Resource\Room {
+        'Room'        => function ($resource, $model): Resource\Room {
             if (class_exists('\App\Chat\Resource\Room')) {
-                return new \App\Chat\Resource\Room($oObj);
+                return new \App\Chat\Resource\Room($resource, $model);
             } else {
-                return new Resource\Room($oObj);
+                return new Resource\Room($resource, $model);
             }
         },
-        'RoomMessage' => function ($oObj): Resource\Room\Message {
+        'RoomMessage' => function ($resource, $model): Resource\Room\Message {
             if (class_exists('\App\Chat\Resource\Room\Message')) {
-                return new \App\Chat\Resource\Room\Message($oObj);
+                return new \App\Chat\Resource\Room\Message($resource, $model);
             } else {
-                return new Resource\Room\Message($oObj);
+                return new Resource\Room\Message($resource, $model);
             }
         },
-        'RoomUser'    => function ($oObj): Resource\Room\User {
+        'RoomUser'    => function ($resource, $model): Resource\Room\User {
             if (class_exists('\App\Chat\Resource\Room\User')) {
-                return new \App\Chat\Resource\Room\User($oObj);
+                return new \App\Chat\Resource\Room\User($resource, $model);
             } else {
-                return new Resource\Room\User($oObj);
+                return new Resource\Room\User($resource, $model);
             }
         },
     ],
