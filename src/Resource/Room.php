@@ -20,9 +20,9 @@ class Room extends Entity
     /** @var bool */
     public $is_deleted;
 
-    /** @var \Nails\Common\Resource\ExpandableField */
+    /** @var \Nails\Common\Resource\ExpandableFieldData */
     public $messages;
 
-    /** @var \Nails\Common\Resource\ExpandableField */
+    /** @var \Nails\Common\Resource\ExpandableFieldData */
     public $users;
 }
